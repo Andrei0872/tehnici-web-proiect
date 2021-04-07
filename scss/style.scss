@@ -1,0 +1,110 @@
+:root {
+  --grey-one: #ad9b9a;
+  --yellow-one: #f9fade;
+  --white-one: #faf7f7;
+  --light-blue-one: #deeefa;
+  --dark-blue-one: #6d95b3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.layout-responsive {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+}
+
+.intro {
+  grid-column: 1 / -1;
+}
+
+.table {
+  grid-column: 2 / span 2;
+}
+
+.site-data {
+  grid-column: 3 / -1;
+}
+
+.main-content {
+  grid-column: 1 / -1;
+}
+
+section[id] {
+  padding: 1rem;
+}
+
+.explore {
+  &__sections {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+
+  &__results {
+    flex-grow: 1;
+  }
+}
+
+.testimonials {
+  &__cards {
+    margin-top: 1rem;
+    padding: 0 1.5rem;
+    display: flex;
+  }
+}
+
+.testimonial-card {
+  flex-basis: 0;
+  flex-grow: 1;
+
+  &:not(:first-child) {
+    margin-left: 2rem;
+  }
+}
+
+.feedback {
+  &__form-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__form {
+    flex-basis: 50vw;
+    text-align: center;
+
+    .form-control, .feedback-submit {
+      width: 75%;
+      margin-top: 1rem;
+    }
+
+    .form-control {
+      & > :is(input, textarea) {
+        width: 100%;
+        resize: none;
+      }
+    }
+  }
+  
+  &__options {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .feedback-submit {
+    &__button {}
+  }
+}

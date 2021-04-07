@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="Andrei Gatej">
+  <meta name="description" content="A platform for effectively hiring lawyers">
+  <meta name="keywords" content="lawyers, hiring lawyers, platform for hiring lawyers, law firm, law office">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>Effective Lawyer Finder</title>
+</head>
+<body>
+  <header>
+    <h1>Effective Lawyer Finder</h1>
+    
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+          
+          <ul>
+            <li><a href="#explore">Explore law firms</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#feedback">Give us feedback</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="/hire-a-lawyer.html">Hire a lawyer</a></li>
+        <li><a href="/about.html">About us</a></li>
+        <!-- Displayed if the user is not logged in -->
+        <li>Login/Register</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="layout-responsive">
+    <!-- TODO: F -->
+    <!-- Zone 1 -->
+    <section class="intro">
+      <h2>intro</h2>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus molestiae dicta adipisci fugit quasi illum?</p>
+    </section>
+    
+    <div class="main-content">
+      <section id="explore" class="explore">
+        <h2>Explore law firms</h2>
+      
+        <p>Finding a <b>good and competent lawyer</b> should not be difficult. Find what suits your need with a <b>simple
+            search</b>.</p>
+      
+        <div class="explore__sections">
+          <section class="explore__filters">
+            <h3>Applied filters:</h3>
+            <aside>
+              <ul>
+                <li>Family Law</li>
+                <li>Medical</li>
+                <li>Labor Law</li>
+                <li>Criminal Law</li>
+              </ul>
+            </aside>
+          
+            <input placeholder="Search here for lawyers/lawyer firms" type="text">
+          </section>
+          
+          <section class="explore__results">
+            <h3>Results</h3>
+            <!-- There will be given some results by default -->
+            <ul>
+              <li class="is-lawyer">Lawyer 1</li>
+              <li class="is-lawyer">Lawyer 2</li>
+              <li class="is-lawyer-firm">Lawyer Firm 1</li>
+              <li class="is-lawyer-firm">Lawyer Firm 2</li>
+              <li class="is-lawyer">Lawyer Firm 3</li>
+            </ul>
+          </section>
+        </div>
+      
+      </section>
+      
+      <section id="testimonials" class="testimonials">
+        <h2>Testimonials</h2>
+      
+        <div class="testimonials__cards">
+          <article class="testimonial-card">
+            <h3>Testimonial title 1</h3>
+          
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, nisi.</p>
+          </article>
+          
+          <article class="testimonial-card">
+            <h3>Testimonial title 2</h3>
+          
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem perferendis, excepturi similique nulla itaque
+              recusandae.</p>
+          </article>
+          
+          <article class="testimonial-card">
+            <h3>Testimonial title 3</h3>
+          
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut commodi quibusdam ex, tempore, voluptatem placeat
+              quam natus a nostrum necessitatibus, quaerat quae est.</p>
+          </article>
+        </div>
+      </section>
+      
+      <section id="feedback" class="feedback">
+        <h2>Feedback</h2>
+      
+        <p>Your opinion matters to us. If you have <em>critics</em> or <em>ideas</em> regarding how this platform can be
+          improved, let us know by completing the form below.</p>
+      
+        <div class="feedback__form-container">
+          <form class="feedback__form">
+            <div class="form-control">
+              <input placeholder="Subject" name="subject" type="text">
+            </div>
+
+            <div class="form-control">
+              <textarea placeholder="Content" name="content" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="form-control feedback__options">
+              <label>
+                <span>improvement</span>
+                <input name="type" value="improvement" type="radio">
+              </label>
+              
+              <label>
+                <span>critic</span>
+                <input name="type" value="critic" type="radio">
+              </label>
+              
+              <label>
+                <span>idea</span>
+                <input name="type" value="idea" type="radio">
+              </label>
+            </div>
+
+            <div class="feedback-submit">
+              <button class="feedback-submit__button" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      
+      <section id="faq" class="faq">
+        <h2>FAQ</h2>
+      
+        <div class="faq__questions">
+          <details>
+            <summary>How can I add my own law firm on this platform?</summary>
+          
+            <p>
+              In order to to this, you'll need to have a <b>law firm account</b> on this platform. This can be done by clicking
+              on the <i>Login/Register</i> button and selecting the right options.
+            </p>
+          </details>
+          
+          <details>
+            <summary>How can I add myself as a lawyer on this platform?</summary>
+          
+            <p>
+              Once you <b>registered as a lawyer</b>, you're automatically added in the lawyer list. You can disabled this
+              behavior when you're creating your account and choose when to be visible or not from your dashboard
+            </p>
+            <p>
+              You can create an account by clicking on the <i>Login/Register</i> button and selecting the right options.
+            </p>
+          </details>
+          
+          <details>
+            <summary>If I only want to hire a lawyer, do I need to have an account?</summary>
+          
+            <p>
+              The answer is <b>yes</b>. This is because we want to offer the <b>best experience when collaborating with
+                lawyers</b> and in order to do so, we'll need you to have an account. Once this is done, you can
+              <em>bookmark</em> lawyers and law firms, <b>chat</b> with lawyers <b>right on the platform</b> and <b>much
+                more</b>.
+            </p>
+          </details>
+        </div>
+      
+        <p>
+          Find more about what being a lawyer really means by clicking <a
+            href="https://www.americanbar.org/groups/public_education/resources/public-information/what-is-a-lawyer-/"
+            target="quick-search_lawyer">right here</a>.
+        </p>
+        <iframe crossorigin name="quick-search_lawyer" width="500" height="300"></iframe>
+      
+        <p>
+          Find more about what a law firm is by clicking <a href="https://en.wikipedia.org/wiki/Law_firm"
+            target="quick-search_law-firm">right here</a>.
+        </p>
+        <iframe crossorigin name="quick-search_law-firm" width="500" height="300"></iframe>
+      
+      </section>
+    </div>
+
+
+    <!-- <div class="zones-container"> -->
+      <!-- Zone 3 -->
+      <section class="events">
+        <h2>events</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quaerat fugit excepturi? Dignissimos, atque consequatur?</p>
+      </section>
+      
+      <!-- Zone 2 -->
+      <section class="table">
+        <h2>tabel</h2>
+        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quaerat fugit excepturi? Dignissimos, atque
+          consequatur?</p>
+      </section>
+      
+      <!-- Zone 4 -->
+      <section class="announcement">
+        <h2>Announcement</h2>
+        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quaerat fugit excepturi? Dignissimos, atque
+          consequatur?</p>
+      </section>
+    <!-- </div> -->
+
+    <!-- <div class="zones-container"> -->
+      <!-- Zone 5 -->
+      <section class="online-users">
+        <h2>online users</h2>
+        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quaerat fugit excepturi? Dignissimos, atque
+          consequatur?</p>
+      </section>
+      
+      <!-- Zone 6 -->
+      <section class="user-data">
+        <h2>user data</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quaerat fugit excepturi? Dignissimos, atque consequatur?</p>
+      </section>
+      
+      <!-- Zone 7 -->
+      <section class="site-data">
+        <h2>site data</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quaerat fugit excepturi? Dignissimos, atque consequatur?</p>
+      </section>
+    <!-- </div> -->
+  </main>
+
+  <footer>
+    <div class="footer__links">
+      <a href="">Back to top</a>
+      <a href="https://facebook.com" target="_blank">Find us on Facebook</a>
+    </div>
+
+    <address>
+      Lorem ipsum dolor sit amet.
+      <a href="tel:555-555-5555">Phone</a>.
+      <a href="mailto:foo@bar.com">foo@bar.com</a>
+    </address>
+
+    <div class="footer__metadata">
+      <small>Powered by <a href="https://andreigatej.dev" target="_blank">andreigatej.dev</a> &#169;</small>
+      <p>Created at <time datetime="2021-03-06 14:00">6 Martie, 2021</time>.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+<!-- https://validator.w3.org/ -->
