@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "scss": "node-sass --watch scss -o public/css",
-    "dev": "nodemon -e js,html index.js"
+    "nodemon": "nodemon -e js,html index.js",
+    "dev": "concurrently 'npm:scss' 'npm:nodemon'"
   },
   "type": "module",
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/Andrei0872/tehnici-web-proiect#readme",
   "devDependencies": {
+    "concurrently": "^6.0.1",
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.7"
   },
