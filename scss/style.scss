@@ -108,3 +108,37 @@ section[id] {
     &__button {}
   }
 }
+
+.faq {
+  &__questions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 2.5rem;
+    grid-auto-flow: row;
+    grid-row-gap: 1rem;
+    padding: .5rem 1rem;
+    align-items: flex-start;
+  }
+
+  &__additional-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+.info-container {
+  margin-top: .5rem;
+  flex-basis: 8rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1rem;
+
+  &__iframe {
+    height: 20rem;
+    margin-top: 1rem;
+  }
+}
