@@ -62,6 +62,45 @@ ul {
 
 .intro {
   grid-column: 1 / -1;
+
+  &__item {
+    width: 80%;
+    margin: 2rem auto;
+
+    @media all and (max-width: $breakpoint-medium) {
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    @media all and (max-width: $breakpoint-xsmall) {
+      padding: 0;
+    }
+    
+    &:first-child {
+      font-size: 1.6rem;
+
+      @media all and (max-width: $breakpoint-xsmall) {
+        font-size: 1.3rem;
+      }
+    }
+
+    &:nth-child(2) {
+      font-size: .9rem;
+
+      @media all and (max-width: $breakpoint-xsmall) {
+        font-size: .8rem;
+      }
+    }
+  
+    & button {
+      font-size: 1rem;
+      padding: 0.5rem;
+
+      @media all and (max-width: $breakpoint-xsmall) {
+        font-size: .8rem;
+      }
+    }
+  }
 }
 
 .table {
