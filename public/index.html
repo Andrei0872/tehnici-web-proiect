@@ -13,25 +13,55 @@
   <title>Effective Lawyer Finder</title>
 </head>
 <body>
-  <header>
-    <h1>Effective Lawyer Finder</h1>
+  <header class="header">
+    <div class="hamburger js-hamburger">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bars" role="img"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-bars fa-w-14 fa-3x">
+        <path fill="currentColor"
+          d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+          class=""></path>
+      </svg>
+    </div>
     
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Home</a>
-          
-          <ul>
+    <nav class="nav js-nav js-prevent-initial-transitions">
+      <ul class="nav-list">
+        <li class="nav-list-item nav-item-home">
+          <span class="nav-item-home__icon">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-home fa-w-18 fa-3x">
+              <path fill="currentColor"
+                d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"
+                class=""></path>
+            </svg>
+          </span>
+
+          <a class="nav-item-home__link js-prevent-initial-transitions" href="#">Home</a>
+        </li>
+        
+        <li class="nav-list-item">
+          <div class="nav-list-item__text">Sections</div>
+
+          <ul class="js-prevent-initial-transitions">
             <li><a href="#explore">Explore law firms</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#feedback">Give us feedback</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </li>
-        <li><a href="/hire-a-lawyer.html">Hire a lawyer</a></li>
-        <li><a href="/about.html">About us</a></li>
+
+        <li class="nav-list-item">
+          <div class="nav-list-item__text">Pages</div>
+
+          <ul class="js-prevent-initial-transitions">
+            <li><a href="/hire-a-lawyer.html">Hire a lawyer</a></li>
+            <li><a href="/about.html">About us</a></li>
+          </ul>
+        </li>
+
         <!-- Displayed if the user is not logged in -->
-        <li>Login/Register</li>
+        <li class="nav-list-item">
+          <div class="nav-list-item__text">Login/Register</div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -283,6 +313,8 @@
       <p>Created at <time datetime="2021-03-06 14:00">6 Martie, 2021</time>.</p>
     </div>
   </footer>
+
+  <script src="./scripts/main.js"></script>
 </body>
 </html>
 
