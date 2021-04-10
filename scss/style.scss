@@ -471,3 +471,29 @@ ul {
     opacity: 1;
   }
 }
+
+hr {
+  height: 10px;
+  background: radial-gradient(circle at center top, transparent 4px, var(--dark-blue-one) 8px, transparent 0px, transparent);
+  background-repeat: repeat-x;
+  background-size: .7rem;
+  border: none;
+  overflow: visible;
+  position: relative;
+  grid-column: 1 / -1;
+
+  &::after {
+    position: absolute;
+    content: '';
+    height: 9px;
+    background: inherit;
+    transform: scale(-1);
+    background-repeat: repeat-x;
+    bottom: 10px;
+    width: 100%;
+    background-size: .7rem;
+    background-position-x: 7.5%;
+    bottom: 100%;
+    transform: scale(-1) translateY(-50%);
+  }
+}
