@@ -4,6 +4,7 @@ const $$ = document.querySelectorAll.bind(document);
 window.addEventListener('load', () => {
   allowTransitionsAfterLoad();
   activateHamburgerListener();
+  activateBannerAnimation();
 });
 
 function allowTransitionsAfterLoad () {
@@ -20,4 +21,23 @@ function activateHamburgerListener () {
   hamburger.addEventListener('click', () => {
     navContainer.classList.toggle('is-shown');
   });
+}
+
+function activateBannerAnimation () {
+  const banner = $('.js-dull-banner');
+
+  if (getComputedStyle(banner).display === 'none') {
+    return;
+  }
+
+  const activeClassName = 'is-active';
+  banner.classList.add(activeClassName);
+
+  const handler = ev => {
+    setTimeout(() => banner.classList.remove(activeClassName), 5000);
+
+    banner.removeEventListener('animationend', handler);
+  }
+
+  banner.addEventListener('animationend', handler);
 }
