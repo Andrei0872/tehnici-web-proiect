@@ -265,6 +265,19 @@ a {
     grid-row-gap: 1rem;
     padding: .5rem 1rem;
     align-items: flex-start;
+
+    & > details {
+      background-color: var(--yellow-one);
+      padding: .5rem;
+
+      summary {
+        cursor: pointer;
+      }
+
+      p {
+        padding: .4rem;
+      }
+    }
   }
 
   &__additional-info {
