@@ -49,6 +49,11 @@ ul {
   list-style-type: none;
 }
 
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
 .layout-responsive {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -648,4 +653,31 @@ hr {
       transform: translateX(-50%);
     }
   }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: var(--yellow-one);
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+  gap: .7rem;
+
+  &__metadata {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .9rem;
+
+    p {
+      font-size: .7em;
+    }
+  }
+}
+
+.is-link {
+  color: var(--dark-blue-one);
+  font-style: italic;
 }
