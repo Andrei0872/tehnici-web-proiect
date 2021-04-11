@@ -1,0 +1,51 @@
+// Color 3: var(--dark-blue-one)
+// Color 2: var(--yellow-one)
+.dull-banner {
+  @media all and (max-width: $breakpoint-medium) {
+    display: none;
+  }
+
+  position: fixed;
+  width: 90vw;
+  height: 10rem;
+  border: 3px dashed #000;
+  background-color: var(--light-blue-one);
+  bottom: 15vh;
+  left: 50%;
+  transform: translateX(calc(-90vw - 60%));
+
+  &.is-active {
+    animation: banner-animation 2s linear;
+    animation-fill-mode: forwards;
+  }
+
+  &__title {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  &__content {
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 1.3rem;
+  }
+
+
+  @keyframes banner-animation {
+    20% {
+      background-color: var(--yellow-one);
+      border-color: var(--dark-blue-one);
+    }
+
+    50% {
+      background-color: var(--dark-blue-one);
+      border-color: var(--yellow-one);
+    }
+
+    100% {
+      background-color: var(--yellow-one);
+      border-color: var(--dark-blue-one);
+      transform: translateX(-50%);
+    }
+  }
+}

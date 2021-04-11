@@ -4,7 +4,7 @@
   "description": "Just fulfilling some tasks.",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass --watch scss -o public/css",
+    "scss": "node-sass --watch scss/style.scss -o public/css",
     "nodemon": "nodemon -e js,html index.js",
     "dev": "concurrently 'npm:scss' 'npm:nodemon'"
   },
