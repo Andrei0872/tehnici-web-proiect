@@ -1,5 +1,7 @@
 .header {
   background-color: var(--yellow-one);
+  position: fixed;
+  width: 100%;
 
   @media all and (max-width: $breakpoint-xsmall2) {
     display: flex;
