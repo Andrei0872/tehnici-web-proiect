@@ -20,5 +20,8 @@ app.get(/^\/(about|hire\-a\-lawyer)$/, (req, res) => {
   res.render(`pages/${pageName}`);
 });
 
+app.get('*', (req, res) => {
+  res.render('pages/404');
+});
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

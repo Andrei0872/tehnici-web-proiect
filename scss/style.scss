@@ -42,7 +42,13 @@ html {
 }
 
 html, body {
-  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 ul {
@@ -171,6 +177,7 @@ a {
 
   & > section {
     margin-top: 1rem;
+    scroll-margin-top: 3rem;
   }
 }
 
@@ -399,5 +406,25 @@ hr {
     background-position-x: 7.5%;
     bottom: 100%;
     transform: scale(-1) translateY(-50%);
+  }
+}
+
+.main-body {
+  margin-top: 3rem;
+}
+
+.error-container {
+  margin-top: 5em;
+  text-align: center;
+
+  &__img {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: unquote("min(90vw, 28rem)");
+  }
+
+  &__home-page {
+    color: var(--dark-blue-one);
+    font-style: italic;
   }
 }

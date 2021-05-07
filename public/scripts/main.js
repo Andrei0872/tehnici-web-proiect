@@ -26,6 +26,10 @@ function activateHamburgerListener () {
 function activateBannerAnimation () {
   const banner = $('.js-dull-banner');
 
+  if (!banner) {
+    return;
+  }
+
   if (getComputedStyle(banner).display === 'none') {
     return;
   }
