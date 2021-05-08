@@ -11,7 +11,9 @@ app.use(express.static('public'));
 app.use(express.static('public/assets'));
 
 app.get(/^\/(index)?$/, (req, res) => {
-  res.render('pages/index')
+  const ipAddr = req.headers['x-forwarded-for'] || '127.0.0.1';
+  
+  res.render('pages/index', { ipAddr });
 });
 
 app.get(/^\/(about|hire\-a\-lawyer)$/, (req, res) => {
