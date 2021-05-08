@@ -1,0 +1,138 @@
+{
+  "galleryPath": "images/gallery/",
+  "images": [
+    {
+      "filePath": "image-1.webp",
+      "filePathSmallerImg": "image-1-min.webp",
+      "title": "Image 1",
+      "description": "Image 1 description",
+      "season": "winter"
+    },
+    {
+      "filePath": "image-2.webp",
+      "filePathSmallerImg": "image-2-min.webp",
+      "title": "Image 2",
+      "description": "Image 2 description",
+      "season": "winter"
+    },
+    {
+      "filePath": "image-3.webp",
+      "filePathSmallerImg": "image-3-min.webp",
+      "title": "Image 3",
+      "description": "Image 3 description",
+      "season": "summer"
+    },
+    {
+      "filePath": "image-4.webp",
+      "filePathSmallerImg": "image-4-min.webp",
+      "title": "Image 4",
+      "description": "Image 4 description",
+      "season": "spring"
+    },
+    {
+      "filePath": "image-5.webp",
+      "filePathSmallerImg": "image-5-min.webp",
+      "title": "Image 5",
+      "description": "Image 5 description",
+      "season": "fall"
+    },
+    {
+      "filePath": "image-6.webp",
+      "filePathSmallerImg": "image-6-min.webp",
+      "title": "Image 6",
+      "description": "Image 6 description",
+      "season": "fall"
+    },
+    {
+      "filePath": "image-7.webp",
+      "filePathSmallerImg": "image-7-min.webp",
+      "title": "Image 7",
+      "description": "Image 7 description",
+      "season": "summer"
+    },
+    {
+      "filePath": "image-8.webp",
+      "filePathSmallerImg": "image-8-min.webp",
+      "title": "Image 8",
+      "description": "Image 8 description",
+      "season": "summer"
+    },
+    {
+      "filePath": "image-9.webp",
+      "filePathSmallerImg": "image-9-min.webp",
+      "title": "Image 9",
+      "description": "Image 9 description",
+      "season": "spring"
+    },
+    {
+      "filePath": "image-10.webp",
+      "filePathSmallerImg": "image-10-min.webp",
+      "title": "Image 10",
+      "description": "Image 10 description",
+      "season": "fall"
+    },
+    {
+      "filePath": "image-11.webp",
+      "filePathSmallerImg": "image-11-min.webp",
+      "title": "Image 11",
+      "description": "Image 11 description",
+      "season": "fall"
+    },
+    {
+      "filePath": "image-12.webp",
+      "filePathSmallerImg": "image-12-min.webp",
+      "title": "Image 12",
+      "description": "Image 12 description",
+      "season": "spring"
+    },
+    {
+      "filePath": "image-13.webp",
+      "filePathSmallerImg": "image-13-min.webp",
+      "title": "Image 13",
+      "description": "Image 13 description",
+      "season": "winter"
+    },
+    {
+      "filePath": "image-14.webp",
+      "filePathSmallerImg": "image-14-min.webp",
+      "title": "Image 14",
+      "description": "Image 14 description",
+      "season": "summer"
+    },
+    {
+      "filePath": "image-15.webp",
+      "filePathSmallerImg": "image-15-min.webp",
+      "title": "Image 15",
+      "description": "Image 15 description",
+      "season": "spring"
+    },
+    {
+      "filePath": "image-16.webp",
+      "filePathSmallerImg": "image-16-min.webp",
+      "title": "Image 16",
+      "description": "Image 16 description",
+      "season": "spring"
+    },
+    {
+      "filePath": "image-17.webp",
+      "filePathSmallerImg": "image-17-min.webp",
+      "title": "Image 17",
+      "description": "Image 17 description",
+      "season": "spring"
+    },
+    {
+      "filePath": "image-18.webp",
+      "filePathSmallerImg": "image-18-min.webp",
+      "title": "Image 18",
+      "description": "Image 18 description",
+      "season": "summer"
+    },
+    {
+      "filePath": "image-19.webp",
+      "filePathSmallerImg": "image-19-min.webp",
+      "title": "Image 19",
+      "description": "Image 19 description",
+      "season": "fall"
+    }
+  ]
+}
