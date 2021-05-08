@@ -74,6 +74,7 @@ a {
   grid-column-gap: 1rem;
   grid-row-gap: 2rem;
   padding: 0 1rem;
+  margin-top: 3rem;
 
   @media all and (max-width: $breakpoint-small) {
     & {
@@ -86,8 +87,33 @@ a {
   }
 }
 
+::cue {
+  background-color: unquote("rgba(255 255 255 / 0.3)");
+  color: #000;
+  line-height: 25px !important
+}
+
 .intro {
   grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+
+  @media all and (max-width: 740px) {
+    flex-wrap: wrap;
+  }
+
+  .intro-items {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__video {
+    height: 60vh;
+    width: 300px;
+    object-fit: cover;
+    object-position: 31%;
+  }
 
   &__item {
     width: 80%;

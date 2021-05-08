@@ -5,19 +5,34 @@
   <main class="layout-responsive">
     <!-- Zone 1 -->
     <section class="intro">
-      <div class="intro__item">
-        <h2>Let finding a good lawyer be your last concern.</h2>
+      <div class="intro-items">
+        <div class="intro__item">
+          <h2>Let finding a good lawyer be your last concern.</h2>
         
-        <p>It is now possible with just a few clicks.</p>
+          <p>It is now possible with just a few clicks.</p>
+        </div>
+        
+        <div class="intro__item">
+          <h2>We advocate for professionalism, safety and responsibility.</h2>
+        </div>
+        
+        <div class="intro__item">
+          <button>Try it now</button>
+        </div>
       </div>
+      
+      <video 
+        controls
+        preload="metadata"
+        class="intro__video"
+        poster="images/video-poster.jpg"
+      >
+        <source src="videos/lawyer-video.mp4" type="video/mp4">
+        <source src="videos/lawyer-video.avi" type="video/avi">
 
-      <div class="intro__item">
-        <h2>We advocate for professionalism, safety and responsibility.</h2>
-      </div>
-
-      <div class="intro__item">
-        <button>Try it now</button>
-      </div>
+        <track src="tracks/romanian.vtt" kind="subtitles" srclang="ro" label="Romanian" default></track>
+        <track src="tracks/english.vtt" kind="subtitles" srclang="en" label="English"></track>
+      </video>
     </section>
 
     <hr>
