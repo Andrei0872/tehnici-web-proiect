@@ -1,0 +1,23 @@
+<% if (!isPartial) { %>
+  <%- include('../partials/head') -%>
+  <%- include('../partials/header') -%>
+<% } %>
+
+<div class="gallery main-body">
+  <% images.forEach(function(img){ %>
+    <figure>
+      <picture>
+        <source media="(min-width:993px)" srcset="<%= img.filePath %>">
+        <source media="(max-width:992px)" srcset="<%= img.filePathSmallerImg %>">
+
+        <img title="<%= img.description %>" src="<%= img.filePath %>" alt="<%= img.title %>">
+      </picture>
+      <figcaption><%= img.title %></figcaption>
+    </figure>
+  <% }); %>
+</div>
+
+<% if (!isPartial) { %>
+  <%- include('../partials/footer') -%>
+  <%- include('../partials/header-closing') -%>
+<% } %>

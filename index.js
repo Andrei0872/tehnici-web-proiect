@@ -1,5 +1,12 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
+import { promisify } from 'util';
+
+const rename = promisify(fs.rename);
+const rm = promisify(fs.rm);
+
+import { resizeGalleryImages, getCurrentSeason, existsFileBasedOnCondition, fetchGalleryImages, checkSmallerImagesAreGenerated } from './utils.js';
 
 /**
  * @typedef {Object} CustomError
@@ -9,8 +16,26 @@ import path from 'path';
 
 const PORT = 8080;
 const GALLERY_FILE_NAME = 'gallery.json';
+const GALLERY_METADATA_PATH = path.resolve('public/data/gallery.json');
+const GALLERY_IMAGES_DIRECTORY_PATH = path.resolve('public/assets/images/gallery');
+
+const SHOULD_RESIZE_IMAGES = false;
 
 const app = express();
+
+// Making sure all the images are of the same size
+SHOULD_RESIZE_IMAGES && resizeGalleryImages(400, GALLERY_IMAGES_DIRECTORY_PATH, async ({ imgPath, newImgPath }) => {
+  try {
+    const oldPath = imgPath;
+    
+    const lastDotIdx = imgPath.lastIndexOf('.');
+    imgPath = imgPath.slice(0, lastDotIdx) + '.' + 'webp';
+
+    await Promise.all([rename(newImgPath, imgPath), !oldPath.includes('webp') && rm(oldPath)]);
+  } catch (err) {
+    console.log(`Error occurred while renaming ${newImgPath} to ${imgPath}: ${err.message}`);
+  }
+});
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('public', 'views'));
@@ -26,16 +51,28 @@ app.use((req, res, next) => {
 app.use(express.static('public'));
 app.use(express.static('public/assets'));
 
-app.get(/^\/(index)?$/, (req, res) => {
+app.get(/^\/(index)?$/, async (req, res) => {
   const ipAddr = req.headers['x-forwarded-for'] || '127.0.0.1';
   
-  res.render('pages/index', { ipAddr });
+  await checkSmallerImagesAreGenerated(GALLERY_IMAGES_DIRECTORY_PATH);
+  
+  const images = await fetchGalleryImages(GALLERY_METADATA_PATH);
+
+  res.render('pages/index', { ipAddr, images });
 });
 
-app.get(/^\/(about|hire\-a\-lawyer)$/, (req, res) => {
+app.get(/^\/(about|hire\-a\-lawyer|gallery)$/, async (req, res) => {
   const { 0: pageName } = req.params;
   
-  res.render(`pages/${pageName}`);
+  if (pageName !== 'gallery') {
+    return res.render(`pages/${pageName}`);
+  }
+
+  await checkSmallerImagesAreGenerated(GALLERY_IMAGES_DIRECTORY_PATH);
+
+  const images = await fetchGalleryImages(GALLERY_METADATA_PATH);
+
+  res.render('pages/gallery', { images, isPartial: false });
 });
 
 app.get('*', (req, res) => {

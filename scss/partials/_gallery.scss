@@ -1,0 +1,25 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-column-gap: 1.5rem;
+  padding: 1rem 0;
+  justify-items: center;
+  grid-row-gap: 1rem;
+  width: 85vw;
+  margin: 0 auto;
+
+  @media all and (max-width: $breakpoint-medium) {
+    & {
+      width: 100vw;
+    }
+  }
+
+
+  & img {
+    border-radius: .3rem;
+  }
+
+  & figcaption {
+    text-align: center;
+  }
+}
