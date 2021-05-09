@@ -6,7 +6,7 @@ import { promisify } from 'util';
 const rename = promisify(fs.rename);
 const rm = promisify(fs.rm);
 
-import { resizeGalleryImages, getCurrentSeason, existsFileBasedOnCondition, fetchGalleryImages, checkSmallerImagesAreGenerated } from './utils.js';
+import { resizeGalleryImages, getCurrentSeason, existsFileBasedOnCondition, fetchGalleryImagesWithSeasonFilter, checkSmallerImagesAreGenerated, fetchGalleryImages } from './utils.js';
 
 /**
  * @typedef {Object} CustomError
@@ -56,7 +56,7 @@ app.get(/^\/(index)?$/, async (req, res) => {
   
   await checkSmallerImagesAreGenerated(GALLERY_IMAGES_DIRECTORY_PATH);
   
-  const images = await fetchGalleryImages(GALLERY_METADATA_PATH);
+  const images = await fetchGalleryImagesWithSeasonFilter(GALLERY_METADATA_PATH);
 
   res.render('pages/index', { ipAddr, images });
 });
@@ -70,9 +70,15 @@ app.get(/^\/(about|hire\-a\-lawyer|gallery)$/, async (req, res) => {
 
   await checkSmallerImagesAreGenerated(GALLERY_IMAGES_DIRECTORY_PATH);
 
-  const images = await fetchGalleryImages(GALLERY_METADATA_PATH);
+  const images = await fetchGalleryImagesWithSeasonFilter(GALLERY_METADATA_PATH);
 
   res.render('pages/gallery', { images, isPartial: false });
+});
+
+app.get('/api/images', async (req, res) => {
+  const images = await fetchGalleryImages(GALLERY_METADATA_PATH);
+
+  res.json({ images });
 });
 
 app.get('*', (req, res) => {
