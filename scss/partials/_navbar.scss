@@ -13,7 +13,7 @@
     padding-top: .5rem;
   }
 
-  &:hover + * {
+  &:hover ~ * {
     pointer-events: none;
   }
 }

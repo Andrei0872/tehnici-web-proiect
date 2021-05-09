@@ -50,6 +50,12 @@ function activateBannerAnimation () {
 }
 
 async function activateDynamicGallery () {
+  const galleryContainer = $('.js-dynamic-gallery');
+
+  if (!galleryContainer) {
+    return;
+  }
+
   const getRandomBetween = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
   const getRandomNrOfImages = async () => {
@@ -66,8 +72,6 @@ async function activateDynamicGallery () {
   const IMG_CLASS = 'dynamic-gallery__image';
   const ACTIVE_CLASS = 'is-active';
   const ANIMATION_DURATION_SECONDS = 2;
-
-  const galleryContainer = $('.js-dynamic-gallery');
 
   const images = await getRandomNrOfImages();
   const imagesCount = images.length;
