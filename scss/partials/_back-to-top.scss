@@ -10,6 +10,10 @@
   z-index: 1;
   transition: opacity .4s linear;
 
+  @media print {
+    display: none;
+  }
+
   &:hover {
     opacity: 1;
   }

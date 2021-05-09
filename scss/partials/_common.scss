@@ -1,6 +1,12 @@
 .is-link {
   color: var(--dark-blue-one);
   font-style: italic;
+
+  @media only print {
+    text-decoration: none !important;
+    font-style: normal !important;
+    color: #000 !important;
+  }
 }
 
 %common-button {

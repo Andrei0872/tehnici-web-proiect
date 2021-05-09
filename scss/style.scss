@@ -69,6 +69,12 @@ a {
 @import './partials/informational-banner';
 @import './partials/gallery';
 
+@media print {
+  img, video, picture, iframe, figure {
+    display: none !important;
+  }
+}
+
 .layout-responsive {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -506,4 +512,43 @@ hr {
       opacity: 0;
     }
   }
+}
+
+.page-title {
+  display: none;
+
+  @media print {
+    display: block;
+    width: 100%;
+    font-size: 2.5rem;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    text-decoration: underline;
+    page-break-after: always;
+  }
+}
+
+.watermark {
+  display: none;
+
+  @media print {
+    display: block;
+    position: fixed;
+    width: 100px;
+    height: 2cm;
+    border: 2px solid black; 
+    outline: 1px solid black;
+    opacity: .65;
+  }
+}
+
+@page :left {
+  margin-left: 2.5cm;
+  margin-right: .5cm;
+}
+
+@page :right {
+  margin-right: 2.5cm;
+  margin-left: .5cm;
 }

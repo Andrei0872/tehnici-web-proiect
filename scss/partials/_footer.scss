@@ -8,6 +8,10 @@
   margin-top: 1rem;
   gap: .7rem;
 
+  @media print {
+    page-break-after: always;
+  }
+
   &__metadata {
     display: flex;
     align-items: center;

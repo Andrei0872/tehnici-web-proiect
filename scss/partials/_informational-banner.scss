@@ -1,7 +1,7 @@
 // Color 3: var(--dark-blue-one)
 // Color 2: var(--yellow-one)
 .dull-banner {
-  @media all and (max-width: $breakpoint-medium) {
+  @media only screen and (max-width: $breakpoint-medium) {
     display: none;
   }
 
@@ -12,6 +12,16 @@
   background-color: var(--light-blue-one);
   bottom: 15vh;
   left: 50%;
+
+  @media print {
+    transform: translateX(-50%);
+    // Otherwise it would be displayed on each page
+    position: absolute;
+    top: 20vh;
+    width: 80vw;
+    border: 3px solid dotted;
+  }
+
   transform: translateX(calc(-90vw - 60%));
 
   &.is-active {
