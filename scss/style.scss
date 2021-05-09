@@ -455,3 +455,55 @@ hr {
     font-style: italic;
   }
 }
+
+.dynamic-gallery {
+  flex-shrink: 0;
+  position: relative;
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-width: 10px;
+  border-style: solid;
+  border-image: url(/images/border-image.png) 25% round;
+
+  @media all and (max-width: $breakpoint-medium) {
+    display: none;
+  }
+
+  &:hover {
+    img[class] {
+      animation-play-state: paused;
+    }
+  }
+
+  &__image {
+    position: absolute;
+
+    .is-active & {
+      animation: disappear 2s linear;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @keyframes disappear {
+    0% {
+      clip-path: circle(100%);
+    }
+
+    60% {
+      clip-path: circle(40%);
+    }
+
+    70% {
+      transform: rotate(0);
+      opacity: 1;
+    }
+
+    100% {
+      clip-path: circle(0%);
+      transform: rotate(270deg);
+      opacity: 0;
+    }
+  }
+}
