@@ -1,8 +1,18 @@
 # Effective Lawyer Finder
 
-## TODOS
+## Setting up
 
-* [ ] write documentation in readme
+1. Install the dependencies
+
+```bash
+npm i
+```
+
+2. Start the server and watch the `style.scss` file:
+
+```bash
+npm run dev
+```
 
 ---
 
