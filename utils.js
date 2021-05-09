@@ -53,18 +53,11 @@ export const getCurrentSeason = () => {
   return monthsSeasonsTable.find(({ months }) => months.includes(month)).season;
 }
 
-export const fetchGalleryImages = async directory => {
-  const galleryMetadata = JSON.parse(await readFile(directory, 'utf8'));
+export const fetchGalleryImagesWithSeasonFilter = async directory => {
   const crtSeason = getCurrentSeason();
 
-  const images = galleryMetadata.images
-    // Filter out based on season
-    .filter(({ season }) => season === crtSeason)
-    .map(img => ({
-      ...img,
-      filePath: path.join(galleryMetadata.galleryPath, img.filePath),
-      filePathSmallerImg: path.join(galleryMetadata.galleryPath, img.filePathSmallerImg),
-    }));
+  const images = (await fetchGalleryImages(directory))
+    .filter(({ season }) => season === crtSeason);
   
   // Maximum 10 images
   return images.length > 10 ? images.slice(0, 10) : images;
@@ -82,3 +75,14 @@ export const checkSmallerImagesAreGenerated = async directory => {
     })
   }
 };
+
+export const fetchGalleryImages = async (directory) => {
+  const galleryMetadata = JSON.parse(await readFile(directory, 'utf8'));
+  
+  return galleryMetadata.images
+    .map(img => ({
+      ...img,
+      filePath: path.join(galleryMetadata.galleryPath, img.filePath),
+      filePathSmallerImg: path.join(galleryMetadata.galleryPath, img.filePathSmallerImg),
+    }));
+}
