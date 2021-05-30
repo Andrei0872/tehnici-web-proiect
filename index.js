@@ -3,6 +3,8 @@ import path from 'path';
 import fs from 'fs';
 import { promisify } from 'util';
 
+import { init } from './db/index.js'
+
 const rename = promisify(fs.rename);
 const rm = promisify(fs.rm);
 
@@ -13,6 +15,12 @@ import { resizeGalleryImages, getCurrentSeason, existsFileBasedOnCondition, fetc
  * @property {string} message - The error message
  * @property {number} code - The error code
  */
+
+const dbClient = await init();
+if (!dbClient) {
+  console.log('Could not connected to the database, ending now.');
+  process.exit(1);
+}
 
 const PORT = 8080;
 const GALLERY_FILE_NAME = 'gallery.json';
