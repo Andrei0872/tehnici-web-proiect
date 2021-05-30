@@ -35,6 +35,18 @@
       </li>
 
       <li class="nav-list-item">
+        <div class="nav-list-item__text">Lawyers</div>
+      
+        <ul class="is-lawyers js-prevent-initial-transitions">
+          <li><a href="/lawyers">All</a></li>
+          
+          <% mainCategories.forEach(function (cat) { %>
+            <li><a href="/lawyers?main_cat=<%= cat %>"><%= cat %></a></li>
+          <% }); %>
+        </ul>
+      </li>
+
+      <li class="nav-list-item">
         <div class="nav-list-item__text">Pages</div>
 
         <ul class="js-prevent-initial-transitions">

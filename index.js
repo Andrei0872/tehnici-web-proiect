@@ -22,6 +22,12 @@ if (!dbClient) {
   process.exit(1);
 }
 
+const fetchMainCategories = async () => {
+  const { rows: mainCategories } = await dbClient.query("select distinct(specialization) from lawyer");
+
+  return mainCategories.map(({ specialization }) => specialization);
+};
+
 const PORT = 8080;
 const GALLERY_FILE_NAME = 'gallery.json';
 const GALLERY_METADATA_PATH = path.resolve('public/data/gallery.json');
@@ -66,21 +72,29 @@ app.get(/^\/(index)?$/, async (req, res) => {
   
   const images = await fetchGalleryImagesWithSeasonFilter(GALLERY_METADATA_PATH);
 
-  res.render('pages/index', { ipAddr, images });
+  const mainCategories = await fetchMainCategories();
+
+  res.render('pages/index', { 
+    ipAddr,
+    images,
+    mainCategories,
+  });
 });
 
 app.get(/^\/(about|hire\-a\-lawyer|gallery)$/, async (req, res) => {
   const { 0: pageName } = req.params;
   
+  const mainCategories = await fetchMainCategories();
+
   if (pageName !== 'gallery') {
-    return res.render(`pages/${pageName}`);
+    return res.render(`pages/${pageName}`, { mainCategories });
   }
 
   await checkSmallerImagesAreGenerated(GALLERY_IMAGES_DIRECTORY_PATH);
 
   const images = await fetchGalleryImagesWithSeasonFilter(GALLERY_METADATA_PATH);
 
-  res.render('pages/gallery', { images, isPartial: false });
+  res.render('pages/gallery', { images, isPartial: false, mainCategories });
 });
 
 app.get('/api/images', async (req, res) => {
