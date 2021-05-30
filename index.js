@@ -97,6 +97,26 @@ app.get(/^\/(about|hire\-a\-lawyer|gallery)$/, async (req, res) => {
   res.render('pages/gallery', { images, isPartial: false, mainCategories });
 });
 
+app.get('/lawyers', async (req, res) => {
+  const { main_cat: specialization = null } = req.query;
+
+  const queryArgs = [];
+  const queryStr = `
+    select *
+    from lawyer
+    ${specialization ? ' where specialization = $1' : ''}
+  `;
+  queryArgs.push(queryStr);
+
+  specialization !== null && (queryArgs.push([specialization]));
+
+  // TODO: Promise.all
+  const { rows: lawyers } = await dbClient.query(...queryArgs);
+  const mainCategories = await fetchMainCategories();
+
+  res.render('pages/lawyers', { mainCategories, lawyers });
+});
+
 app.get('/api/images', async (req, res) => {
   const images = await fetchGalleryImages(GALLERY_METADATA_PATH);
 

@@ -1,0 +1,24 @@
+.lawyers-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  padding: 1rem .5rem;
+
+  @media screen and (max-width: 1050px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lawyer {
+  border: 1px solid black;
+
+  &__divided-row {
+      display: flex;
+      justify-content: space-between;
+      min-height: 4rem;
+  }
+
+  &__header {
+    text-align: center;
+  }
+}

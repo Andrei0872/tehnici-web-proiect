@@ -1,0 +1,45 @@
+<%- include('../partials/head') -%>
+<%- include('../partials/header') -%>
+
+<div class="main-body">
+  <h1>Lawyers</h1>
+  
+  <div class="lawyers-container">
+    <!-- `specialization` = the main category -->
+    <% lawyers.forEach(function (l) { %>
+      <article class="lawyer">
+        <h2 class="lawyer__header <%= l.specialization %>"><%= l.name %></h2>
+
+        <div class="lawyer__body">
+          <div class="lawyer__specialization">Specialization: <%= l.specialization %></div>
+
+          <div class="lawyer__divided-row">
+            <div class="lawyer__desc"><%= l.descr %></div>
+            <div class="lawyer__img"><img src="<%= l.img_path %>" alt="Lawyer's image"></div>
+          </div>
+
+          <ul class="lawyer__details">
+            <!-- Numerica -->
+            <li>Salary: <%= l.salary %></li>
+            
+            <!-- O singura val. `string` -->
+            <li>Works for: <%= l.works_for %></li>
+
+            <!-- Mai multe valori `string` -->
+            <li>Hobbies: <%= l.hobbies %></li>
+
+            <!-- Data -->
+            <li>Started at: <%= l.started_at %></li>
+
+            <!-- Boolean -->
+            <li>Has free trial: <%= l.has_free_trial %></li>
+          </ul>
+        </div>
+      </article>
+    <% }); %>
+  </div>
+</div>
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/header-closing') -%>
+
