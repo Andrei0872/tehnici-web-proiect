@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
   setUpFiltersForm();
   setUpHobbyFilter();
   setUpSortingButtons();
+  setUpComputation();
 });
 
 function setUpRangeFilter () {
@@ -36,8 +37,6 @@ function setUpFiltersForm () {
       
       const fulfilsFilters = lawyerDataEls.every(el => {
         const clsName = [...el.classList].find(c => c.includes('js-')).replace('js', 'lawyer');
-        // console.log(clsName);
-        // console.log(formValues.getAll(clsName));
 
         return filterStrategies[clsName](el.innerText, formValues.getAll(clsName))
       });
@@ -186,8 +185,30 @@ function setUpComputation () {
   const lawyerEls = [...$$('.js-lawyer')];
   const computeBtn = $('.js-compute');
 
-  let sum = 0;
-  // computeBtn.addEventListener('click', () => {
-  //   lawyerEls.forEach
-  // });
+  if (!lawyerEls.length) {
+    alert('No lawyers - cannot compute the salary average.');
+    return;
+  }
+
+  let isResultShown = false;
+
+  computeBtn.addEventListener('click', () => {
+    if (isResultShown) {
+      return;
+    }
+    
+    const sum = lawyerEls.reduce(
+      (acc, elem) => acc + +elem.querySelector('.js-salary').innerText,
+      0
+    );
+
+    const result = (sum / lawyerEls.length).toFixed(2);
+    const div = document.createElement('div');
+    div.innerText = result;
+
+    formEl.insertAdjacentElement('afterend', div);
+    isResultShown = true;
+    
+    setTimeout(() => (formEl.parentElement.removeChild(div), isResultShown = false), 2000);
+  });
 }
