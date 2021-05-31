@@ -3,42 +3,206 @@
 
 <div class="main-body">
   <h1>Lawyers</h1>
+
+  <div class="lawyer-filters">
+    <form class="js-lawyer-filters lawyer-filters">
+      <!-- a: input -->
+      <div class="form-control">
+        <label for="lawyer-name">Name: </label>
+        <input pattern="[0-9A-Za-z\- ]+" id="lawyer-name" placeholder="Name" name="lawyer-name" type="text">
+      </div>
+      
+      <!-- b: range -->
+      <div class="form-control">
+        <label for="lawyer-yrs_exp">Years of experience: </label>
+        <input class="js-lawyer-filter-range" id="lawyer-yrs_exp" name="lawyer-yrs_exp" type="range" min="1" max="15" value="15">
+        <span>(<span class="js-lawyer-filter-range-min"></span> <= <span class="js-lawyer-filter-range-placeholder"></span> <= <span class="js-lawyer-filter-range-max"></span>)</span>
+      </div>
+
+      <!-- 
+        c: radio buttons - city_name
+        * `all` option (default) - select * that match one of them
+      -->
+      <div class="form-control-group">
+        <div>City:</div>
+        <div class="form-control">
+          <label>
+            <span>All</span>
+            <input type="radio" value="all" checked="checked" name="lawyer-city_name">
+          </label>
+        </div>
+
+        <div class="form-control">
+          <label>
+            <span>None</span>
+            <input type="radio" value="none" name="lawyer-city_name">
+          </label>
+        </div>
+        
+        <div class="form-control">
+          <label>
+            <span>Bucharest</span>
+            <input type="radio" value="bucharest" name="lawyer-city_name">
+          </label>
+        </div>
+
+        <div class="form-control">
+          <label>
+            <span>Bremen</span>
+            <input type="radio" value="bremen" name="lawyer-city_name">
+          </label>
+        </div>
+
+        <div class="form-control">
+          <label>
+            <span>Linz</span>
+            <input type="radio" value="linz" name="lawyer-city_name">
+          </label>
+        </div>
+      </div>
+
+      <!-- d: checkbox buttons -->
+      <div class="form-control-group js-filter-hobby">
+        <div>Hobbies:</div>
+
+        <div class="form-control">
+          <label>
+            <span>any</span>
+            <input type="checkbox" value="any" checked="checked" name="lawyer-hobby">
+          </label>
+        </div>
+        
+        <div class="form-control">
+          <label>
+            <span>reading</span>
+            <input type="checkbox" value="reading"  name="lawyer-hobby">
+          </label>
+        </div>
+      
+        <div class="form-control">
+          <label>
+            <span>football</span>
+            <input type="checkbox" value="football" name="lawyer-hobby">
+          </label>
+        </div>
+      
+        <div class="form-control">
+          <label>
+            <span>travelling</span>
+            <input type="checkbox" value="travelling" name="lawyer-hobby">
+          </label>
+        </div>
+      
+        <div class="form-control">
+          <label>
+            <span>jogging</span>
+            <input type="checkbox" value="jogging" name="lawyer-hobby">
+          </label>
+        </div>
+      
+        <div class="form-control">
+          <label>
+            <span>history</span>
+            <input type="checkbox" value="history" name="lawyer-hobby">
+          </label>
+        </div>
+      </div>
+
+        <!-- 
+          e: textarea buttons 
+          * '+k1' - k1 should appear in description; at least one of the `+..` must appear in desc
+          * '-k1' - k1 should NOT appear in description; no `-...` should appear in desc
+    
+          k1 - a substring
+        -->
+      <div class="form-control filter-descr">
+        <label for="lawyer-descr">Description:</label>
+        <textarea id="lawyer-descr" name="lawyer-desc" rows="10"></textarea>
+      </div>
+
+      <div class="flex-row">
+        <!-- f: simple select -->
+        <div class="form-control filter-works_for">
+          <label for="lawyer-works_for">Works for:</label>
+          <select id="lawyer-works_for" name="lawyer-works_for" value="0">
+            <option value="any">Any</option>
+            <option value="1">Law firm 1</option>
+            <option value="2">Law firm 2</option>
+            <option value="3">Law firm 3</option>
+          </select>
+        </div>
+
+        <!-- 
+          g: multiple select 
+          * for price: 10-20, 20-50, ... -> must select between boundaries
+        -->
+        <div class="form-control filter-salary">
+          <label for="lawyer-salary">Salary range</label>
+          <select id="lawyer-salary" name="lawyer-salary" multiple>
+            <option selected value="any">Any</option>
+            <option value="3000-5000">3000-5000</option>
+            <option value="5000-7000">5000-7000</option>
+            <option value="7000-9000">7000-9000</option>
+            <option value="9000+">9000+</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-buttons">
+        <button class="is-common-button form-buttons__submit-filter" type="submit">Filter</button>
+
+        <button class="is-common-button js-sort-asc" type="button">Sort Asc by salary+specialization</button>
+        <button class="is-common-button js-sort-desc" type="button">Sort Desc by salary+specialization</button>
+        <button class="is-common-button js-reset-sort" type="button">Reset sort</button>
+
+        <button class="is-common-button js-compute" type="button">Compute salary average</button>
+
+        <button class="is-common-button js-reset-form" type="button">Reset filters</button>
+      </div>
+    </form>
+  </div>
   
   <div class="lawyers-container">
     <!-- `specialization` = the main category -->
     <% lawyers.forEach(function (l) { %>
-      <article id="article_<%= l.id %>" class="lawyer">
-        <h2 class="lawyer__header <%= l.specialization %>"><%= l.name %></h2>
+      <article id="article_<%= l.id %>" class="lawyer js-lawyer">
+        <h2 class="lawyer__header <%= l.specialization %> js-name"><%= l.name %></h2>
 
         <div class="lawyer__body">
-          <div class="lawyer__specialization">Specialization: <%= l.specialization %></div>
+          <div class="lawyer__specialization">Specialization: <span class="specialization"><%= l.specialization %></span></div>
 
           <div class="lawyer__divided-row">
-            <div class="lawyer__desc"><%= l.descr %></div>
+            <div class="lawyer__desc js-desc"><%= l.descr %></div>
             <div class="lawyer__img"><img src="<%= l.img_path %>" alt="Lawyer's image"></div>
           </div>
 
           <ul class="lawyer__details">
             <!-- Numerica -->
-            <li>Salary: <%= l.salary %></li>
+            <li>Salary: <span class="js-salary"><%= l.salary %></span></li>
             
             <!-- O singura val. `string` -->
-            <li>Works for: <%= l.works_for %></li>
+            <li class="js-works_for">Works for: <%= l.works_for %></li>
 
             <!-- Mai multe valori `string` -->
-            <li>Hobbies: <%= l.hobbies %></li>
+            <li class="js-hobby">Hobbies: <%= l.hobbies %></li>
 
             <!-- Data -->
             <li>Started at: <time><%= l.started_at %></time></li>
 
             <!-- Boolean -->
             <li>Has free trial: <%= l.has_free_trial %></li>
+
+            <!-- The following are needed in order to match the filters. -->
+            <li>Years of experience: <span class="js-yrs_exp"><%= l.years_experience %></span></li>
+            <li class="js-city_name">City name: <%= l.city_name %></li>
           </ul>
         </div>
       </article>
     <% }); %>
   </div>
 </div>
+
+<script defer src="scripts/lawyers.js"></script>
 
 <%- include('../partials/footer') -%>
 <%- include('../partials/header-closing') -%>

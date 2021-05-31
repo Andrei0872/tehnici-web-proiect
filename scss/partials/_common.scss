@@ -26,3 +26,11 @@
     outline-color: var(--grey-one);
   }
 }
+
+.is-common-button {
+  @extend %common-button;
+}
+
+.form-control :is(input, select, textarea) {
+  @extend %common-form-control;
+}
