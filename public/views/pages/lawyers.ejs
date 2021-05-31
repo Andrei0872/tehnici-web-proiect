@@ -7,7 +7,7 @@
   <div class="lawyers-container">
     <!-- `specialization` = the main category -->
     <% lawyers.forEach(function (l) { %>
-      <article class="lawyer">
+      <article id="article_<%= l.id %>" class="lawyer">
         <h2 class="lawyer__header <%= l.specialization %>"><%= l.name %></h2>
 
         <div class="lawyer__body">
@@ -29,7 +29,7 @@
             <li>Hobbies: <%= l.hobbies %></li>
 
             <!-- Data -->
-            <li>Started at: <%= l.started_at %></li>
+            <li>Started at: <time><%= l.started_at %></time></li>
 
             <!-- Boolean -->
             <li>Has free trial: <%= l.has_free_trial %></li>

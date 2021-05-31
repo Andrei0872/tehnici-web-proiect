@@ -10,15 +10,25 @@
 }
 
 .lawyer {
-  border: 1px solid black;
+  background-color: var(--light-blue-one);
+  border-radius: .6rem;
 
   &__divided-row {
-      display: flex;
-      justify-content: space-between;
-      min-height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    min-height: 4rem;
   }
 
   &__header {
     text-align: center;
+    background-color: var(--yellow-one);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    padding: .3rem;
+    border: 4px solid #000;
+  }
+
+  &__body {
+    padding: .5rem 1rem;
   }
 }

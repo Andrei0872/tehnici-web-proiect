@@ -37,6 +37,11 @@ const SHOULD_RESIZE_IMAGES = false;
 
 const app = express();
 
+// Using this to generate smaller images for the `lawyer` table.
+// In order to keep things simple, we'll keep the original images and use
+// the ones with the `temp-` prefix in the app.
+// resizeGalleryImages(100, path.resolve('public/assets/images/lawyers'))
+
 // Making sure all the images are of the same size
 SHOULD_RESIZE_IMAGES && resizeGalleryImages(400, GALLERY_IMAGES_DIRECTORY_PATH, async ({ imgPath, newImgPath }) => {
   try {
@@ -113,8 +118,21 @@ app.get('/lawyers', async (req, res) => {
   // TODO: Promise.all
   const { rows: lawyers } = await dbClient.query(...queryArgs);
   const mainCategories = await fetchMainCategories();
+  
+  const daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-  res.render('pages/lawyers', { mainCategories, lawyers });
+  res.render('pages/lawyers', { 
+    mainCategories,
+    lawyers: lawyers.map(l => {
+      const crtDate = new Date(l.started_at);
+      
+      return {
+        ...l,
+        started_at: `${daysOfTheWeek[crtDate.getDay()]}, ${crtDate.getDate()}-${monthsOfTheYear[crtDate.getMonth()]}-${crtDate.getFullYear()}`
+      }
+    }), 
+  });
 });
 
 app.get('/api/images', async (req, res) => {
