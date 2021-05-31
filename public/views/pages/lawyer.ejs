@@ -1,0 +1,48 @@
+<%- include('../partials/head') -%>
+<%- include('../partials/header') -%>
+
+<div class="main-body">
+  <h1>Details for the lawyer with id <%= lawyer.id %>
+  </h1>
+
+  <article style="width: 80vw; margin: 3rem auto;" id="article_<%= lawyer.id %>" class="lawyer js-lawyer">
+    <h2 class="lawyer__header <%= lawyer.specialization %> js-name">
+      <%= lawyer.name %>
+    </h2>
+
+    <div class="lawyer__body">
+      <div class="lawyer__specialization">Specialization: <span class="specialization">
+          <%= lawyer.specialization %>
+        </span></div>
+
+      <div class="lawyer__divided-row">
+        <div class="lawyer__desc js-desc"><%= lawyer.descr %></div>
+        <div class="lawyer__img"><img src="/<%= lawyer.img_path %>" alt="Lawyer's image"></div>
+      </div>
+
+      <ul class="lawyer__details">
+        <!-- Numerica -->
+        <li>Salary: <span class="js-salary"><%= lawyer.salary %></span></li>
+
+        <!-- O singura valoare. `string` -->
+        <li class="js-works_for">Works for: <%= lawyer.works_for %></li>
+
+        <!-- Mai multe valori `string` -->
+        <li class="js-hobby">Hobbies: <%= lawyer.hobbies %></li>
+
+        <!-- Data -->
+        <li>Started at: <time><%= lawyer.started_at %></time></li>
+
+        <!-- Boolean -->
+        <li>Has free trial: <%= lawyer.has_free_trial %></li>
+
+        <!-- The following are needed in order to match the filters. -->
+        <li>Years of experience: <span class="js-yrs_exp"><%= lawyer.years_experience %></span></li>
+        <li class="js-city_name">City name: <%= lawyer.city_name %></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<%- include('../partials/footer') -%>
+<%- include('../partials/header-closing') -%>

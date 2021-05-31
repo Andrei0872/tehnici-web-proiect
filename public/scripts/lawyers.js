@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
   setUpHobbyFilter();
   setUpSortingButtons();
   setUpComputation();
+  setUpArticlesListeners();
 });
 
 function setUpRangeFilter () {
@@ -211,4 +212,13 @@ function setUpComputation () {
     
     setTimeout(() => (formEl.parentElement.removeChild(div), isResultShown = false), 2000);
   });
+}
+
+function setUpArticlesListeners () {
+  const lawyerEls = [...$$('.js-lawyer')];
+
+  lawyerEls.forEach(el => el.addEventListener('click', ev => {
+    const lawyerId = ev.currentTarget.id.slice(ev.currentTarget.id.indexOf('_') + 1);
+    window.location.assign(`/lawyers/${lawyerId}`);
+  }));
 }

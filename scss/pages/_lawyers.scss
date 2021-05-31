@@ -12,6 +12,12 @@
 .lawyer {
   background-color: var(--light-blue-one);
   border-radius: .6rem;
+  cursor: pointer;
+  transition: transform .2s;
+
+  &:hover {
+    transform: translateY(-.3rem);
+  }
 
   &__divided-row {
     display: flex;

@@ -133,17 +133,35 @@ app.get('/lawyers', async (req, res) => {
   });
 });
 
+app.get('/lawyers/:id', async (req, res) => {
+  const mainCategories = await fetchMainCategories();
+  const { id } = req.params;
+  
+  const { rows: { 0: lawyer } } = await dbClient.query(`
+    select *
+    from lawyer
+    where id = $1
+  `, [id]);
+
+  return res.render('pages/lawyer', {
+    mainCategories,
+    lawyer,
+  });
+});
+
 app.get('/api/images', async (req, res) => {
   const images = await fetchGalleryImages(GALLERY_METADATA_PATH);
 
   res.json({ images });
 });
 
-app.get('*', (req, res) => {
-  res.render('pages/404');
+app.get('*', async (req, res) => {
+  const mainCategories = await fetchMainCategories();
+  
+  res.render('pages/404', { mainCategories });
 });
 
-app.use((/** @type {CustomError} */err, req, res, next) => {
+app.use(async (/** @type {CustomError} */err, req, res, next) => {
   let renderedPage;
 
   switch (true) {
@@ -155,7 +173,9 @@ app.use((/** @type {CustomError} */err, req, res, next) => {
     // Other cases here...
   }
   
-  res.render(`pages/${renderedPage}`, { message: err.message });
+  const mainCategories = await fetchMainCategories();
+
+  res.render(`pages/${renderedPage}`, { message: err.message, mainCategories });
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

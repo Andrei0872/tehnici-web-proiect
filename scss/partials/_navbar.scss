@@ -2,6 +2,7 @@
   background-color: var(--yellow-one);
   position: fixed;
   width: 100%;
+  z-index: 1;
 
   @media print {
     display: none;
