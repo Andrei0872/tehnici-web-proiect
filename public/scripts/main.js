@@ -1,7 +1,7 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const IMAGES_URL = 'http://localhost:8080/api/images';
+const IMAGES_URL = 'api/images';
 
 window.addEventListener('load', () => {
   allowTransitionsAfterLoad();
