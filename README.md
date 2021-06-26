@@ -1,5 +1,7 @@
 # Effective Lawyer Finder
 
+A live demo of the app can be found [here](https://lawyers-finder.herokuapp.com/).
+
 ## Prerequisites
 
 * [Docker](https://www.docker.com/)
