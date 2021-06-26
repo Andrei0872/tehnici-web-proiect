@@ -8,6 +8,7 @@
     "nodemon": "nodemon -e js,html index.js",
     "dev": "env $(cat .env) concurrently 'npm:scss' 'npm:nodemon'",
     "start": "concurrently 'npm:scss' 'npm:nodemon'"
+
   },
   "type": "module",
   "repository": {
