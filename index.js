@@ -28,7 +28,7 @@ const fetchMainCategories = async () => {
   return mainCategories.map(({ specialization }) => specialization);
 };
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const GALLERY_FILE_NAME = 'gallery.json';
 const GALLERY_METADATA_PATH = path.resolve('public/data/gallery.json');
 const GALLERY_IMAGES_DIRECTORY_PATH = path.resolve('public/assets/images/gallery');
